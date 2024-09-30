@@ -1,26 +1,14 @@
-def direcao_soldado(grau):
-    if grau == 0:
-        return 'N'
-    elif grau == 1 or grau == -3:
-        return 'O'
-    elif grau == -1 or grau == 3:
-        return 'L'
-    else:
-        return 'S'
-        
-N = int(input('Comandos: '))
-C = list(map(str,input().upper()[:N]))
-#usei "[:N]" para que C aceite até o valor de N 
+sentido = {0:'N',1:'O',2:'S',3:'L',-1:'L',-2:'S',-3:'O'}
 
-grau = 0
+N = int(input('Número de comandos: '))
+C = list(map(str,input('Comandos: ').upper()[:N]))
+
+graus = 0
 for comando in C:
-    if grau < -3 or grau > 3:
-        grau = 0
+    if graus < -3 or graus > 3:
+        graus = 0
     elif comando == 'D':
-        grau -= 1
+        graus -= 1
     elif comando == 'E':
-        grau += 1
-        
-sentido = direcao_soldado(grau)
-print(sentido)
-    
+        graus += 1
+    print(sentido[graus])
