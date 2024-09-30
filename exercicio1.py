@@ -14,12 +14,12 @@ C = list(map(str,input().upper()[:N]))
 
 grau = 0
 for comando in C:
-    if comando == 'D':
+    if grau < -3 or grau > 3:
+        grau = 0
+    elif comando == 'D':
         grau -= 1
     elif comando == 'E':
         grau += 1
-    if grau < -3 or grau > 3:
-        grau = 0
         
 sentido = direcao_soldado(grau)
 print(sentido)
